@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ──────────────────────────────────────── */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Brand tokens */
+  --accent:      #CAFF33;
+  --accent-dim:  #9EC926;
+  --sidebar-bg:  #0C0D11;
+  --sidebar-border: rgba(255,255,255,0.06);
+  --paper:       #F7F6F3;
+  --card:        #FFFFFF;
+  --border:      #E4E3DF;
+  --ink:         #18181B;
+  --ink-2:       #52524E;
+  --ink-3:       #A09E9A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospace for all financial numbers */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D4D3D0; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #B0AEA9; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.anim-fade-up  { animation: fadeUp  0.25s ease-out both; }
+.anim-fade-in  { animation: fadeIn  0.2s ease-out both; }
+.anim-slide-in { animation: slideIn 0.2s ease-out both; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Recharts overrides */
+.recharts-tooltip-wrapper { pointer-events: none; }
+.recharts-surface { overflow: visible; }
